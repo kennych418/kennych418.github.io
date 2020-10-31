@@ -18,12 +18,12 @@ Since the IR beacons will be relatively inexpensive, we plan to design and order
 ### Project Proposal Overview
 We will build a system for tracking relative position based on mobile IR beacons. The beacons will contain identical hardware and be based around the Arduino Nano 33 BLE Sense. These beacons triangulate relative position based on the received IR intensity and the locations of the other beacons. To avoid crosstalk, the beacons will flash in turn in an order coordinated over BLE as shown in Figure 1.
 
-![PCB](../Pictures/PCB.png)
+![3Beacons](../Pictures/3pics.png)
 **Figure 1**: IR Beacons. We will calculate distance based on IR intensity at the receiving beacons.
 
 Our beacon hardware design will include three upward-facing wide-angle IR phototransistors arranged around a single wide-angle IR LED as seen in Figure 2. The reason we chose three phototransistors is to allow the option of calculating a rough angle measurement as shown in Figure 3.
 
-![3Beacons](../Pictures/3pics.png)
+![PCB](../Pictures/PCB.png)
 **Figure 2**: High Level Beacon Design
 
 ![Angle](../Pictures/Angle.png)
