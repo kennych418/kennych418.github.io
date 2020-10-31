@@ -1,6 +1,5 @@
 ## Small scale localization using IR
 
-###
 [Source Code Github Link](https://github.com/kennych418/IR_Localization/tree/master)
 
 ### Abstract
