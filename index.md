@@ -39,6 +39,12 @@ To generate a symmetric distribution of light emitted from the beacon, we will u
 
 Since we are constrained to a small number of beacons due to the cost of additional nanos, we will use the IMU on the Arduino Nano 33 BLE Sense to detect which beacons are moving and will need to update their positions and to implement a dead reckoning system that will provide redundancy and allow us to detect and handle errors in IR distances.
 
+### Deliverables
+1. Each beacon can measure distances from other beacons.<br>
+2. As a beacon moves, its position updates correctly on a relative coordinate system.<br>
+3. Comparison of IMU results and IR beacon results.<br>
+4. Improved localization using both IMU and IR beacon results.<br>
+
 ### Analysis of Previous Literature
 There is a large amount of prior work in the realm of indoor localization using IR beacons, but our intended approach of using beacons with changing positions to determine relative positioning seems to be somewhat new.
 
