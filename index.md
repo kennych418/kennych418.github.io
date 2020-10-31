@@ -76,28 +76,28 @@ Citation:
 
 ### Project Timeline
 **Week 5:**<br>
-*Goals:* Finish Schematic. Order components. BLE communication between devices. Time synchronization using BLE.
-*Critical:* All hardware orders must be complete as early in the week as possible.
+*Goals:* Finish Schematic. Order components. BLE communication between devices. Time synchronization using BLE.<br>
+*Critical:* All hardware orders must be complete as early in the week as possible.<br>
 
 **Week 6:**<br>
-*Goals:* Access IMU. Implement dead reckoning and detection of motion. Implement a 2D location visualization app of some sort on the computer. Assemble and test devices when they arrive. Exchange parts.
-*Critical:* BLE Communication between devices must be reliable. Time synchronization must be reliable and extend to multiple devices.
+*Goals:* Access IMU. Implement dead reckoning and detection of motion. Implement a 2D location visualization app of some sort on the computer. Assemble and test devices when they arrive. Exchange parts.<br>
+*Critical:* BLE Communication between devices must be reliable. Time synchronization must be reliable and extend to multiple devices.<br>
 
 **Week 7:**<br>
-*Goals:* Assemble all node devices. Model IR intensity as a function of distance. Test scattering reflector for IR emitter. Verify that the IMU, IR transmitters, and IR receivers work.
-*Critical:* Must have assembled hardware.
+*Goals:* Assemble all node devices. Model IR intensity as a function of distance. Test scattering reflector for IR emitter. Verify that the IMU, IR transmitters, and IR receivers work.<br>
+*Critical:* Must have assembled hardware.<br>
 
 **Week 8:**<br>
-*Goals:* Completed project by the end of this week. Present preliminary results to the class.
-*Critical:* Verify that the nodes can track the distance from each other. Try to write the code that will calculate their relative position from one another.
+*Goals:* Completed project by the end of this week. Present preliminary results to the class.<br>
+*Critical:* Verify that the nodes can track the distance from each other. Write the code that will calculate their relative position from one another.<br>
 
 **Week 9:**<br>
-*Goals:* Comment code. Write report. Remove any bugs. Polish the software and interface. Make website look clean. Name for project.
-*Critical:* Must have complete project with working hardware.
+*Goals:* Comment code. Write report. Remove any bugs. Polish the software and interface. Make website look clean. Name for project.<br>
+*Critical:* Must have complete project with working hardware.<br>
 
 **Week 10:**<br>
-*Goals:* Record and edit demo video.
-*Critical:* Demo video. Project website. Github. Cleaned code.
+*Goals:* Record and edit demo video.<br>
+*Critical:* Demo video. Project website. Github. Cleaned code.<br>
 
 ### Limitations
 
