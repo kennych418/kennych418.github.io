@@ -71,7 +71,30 @@ Citation:
 
 (10) Herath, Sachini, et al. RoNIN: Robust Neural Inertial Navigation in the Wild: Benchmark, Evaluations, & New Methods. IEEE, 2020, ieeexplore.ieee.org/abstract/document/9196860?casa_token=4WmmRORA2QQAAAAA:iOOFTQS93sPSI0iWvwYh9oqWRfsBjfUxqikYEWXALpCwhNK25Lx-uWKcr2RJIAN2YCjV8mT0pwvp.
 
-### Analysis
+### Project Timeline
+**Week 5:**<br>
+*Goals:* Finish Schematic. Order components. BLE communication between devices. Time synchronization using BLE.
+*Critical:* All hardware orders must be complete as early in the week as possible.
+
+**Week 6:**<br>
+*Goals:* Access IMU. Implement dead reckoning and detection of motion. Implement a 2D location visualization app of some sort on the computer. Assemble and test devices when they arrive. Exchange parts.
+*Critical:* BLE Communication between devices must be reliable. Time synchronization must be reliable and extend to multiple devices.
+
+**Week 7:**<br>
+*Goals:* Assemble all node devices. Model IR intensity as a function of distance. Test scattering reflector for IR emitter. Verify that the IMU, IR transmitters, and IR receivers work.
+*Critical:* Must have assembled hardware.
+
+**Week 8:**<br>
+*Goals:* Completed project by the end of this week. Present preliminary results to the class.
+*Critical:* Verify that the nodes can track the distance from each other. Try to write the code that will calculate their relative position from one another.
+
+**Week 9:**<br>
+*Goals:* Comment code. Write report. Remove any bugs. Polish the software and interface. Make website look clean. Name for project.
+*Critical:* Must have complete project with working hardware.
+
+**Week 10:**<br>
+*Goals:* Record and edit demo video.
+*Critical:* Demo video. Project website. Github. Cleaned code.
 
 ### Limitations
 
