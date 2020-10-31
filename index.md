@@ -1,7 +1,5 @@
 ## Small scale localization using IR
 
-### [Github URL](https://github.com/kennych418/IR_Localization/tree/master)
-
 ### Abstract
 We will explore the possibility of using IR beacons for small-scale relative localization between objects. Each node will have one IR emitter beacon and multiple IR receivers. The beacons will each be equipped with BLE and IMU from an Arduino Nano 33 BLE Sense. These beacons will coordinate blinking patterns over BLE to avoid crosstalk. To generate a symmetric light pattern, we will use a card or irregular lens to scatter the light in a uniform pattern around the beacon. Since each beacon will have an IMU we will use this to improve localization accuracy and determine directions of motion. If we have time, we will also explore using a version of IMU dead reckoning to improve localization accuracy.
 
@@ -15,13 +13,13 @@ We will explore the possibility of using IR beacons for small-scale relative loc
 ### Plan to Maintain Safe Social Distancing
 Since the IR beacons will be relatively inexpensive, we plan to design and order enough of those that we will not need to work together in person. We will design and order the boards and parts for these early with the intent for each of us to have components totaling 5 beacons. In addition to the 2 Arduino Nano 33 BLE Sense modules we own, we will be able to borrow 3 more, so we will only need to purchase one more to have 3 each. This will give us access to 3 BLE/IMU modules to go with 5 IR beacon nodes. We will share code and hardware designs on github and use Zoom for brainstorming and troubleshooting meetings.
 
-### Project Proposal Overview
-We will build a system for tracking relative position based on mobile IR beacons. The beacons will contain identical hardware and be based around the Arduino Nano 33 BLE Sense. These beacons triangulate relative position based on the received IR intensity and the locations of the other beacons. To avoid crosstalk, the beacons will flash in turn in an order coordinated over BLE as shown in Figure 1.
+### Project Proposal
+We will build a system for tracking relative position based on mobile IR beacons. The beacons will contain identical hardware and be based around the Arduino Nano 33 BLE Sense. These beacons triangulate relative position based on the received IR intensity and the locations of the other beacons. To avoid crosstalk, the beacons will flash in turn in an order coordinated over BLE as shown in Figure 1. Although a standard approach based on distances alone would use 3 stationary beacons and a single moving device, we will attempt to use only 3 devices and will handle the additional degrees of freedom using the IMU and/or angle measurements.
 
 ![3Beacons](../Pictures/3pics.png)
 **Figure 1**: IR Beacons. We will calculate distance based on IR intensity at the receiving beacons.
 
-Our beacon hardware design will include three upward-facing wide-angle IR phototransistors arranged around a single wide-angle IR LED as seen in Figure 2. The reason we chose three phototransistors is to allow the option of calculating a rough angle measurement as shown in Figure 3.
+Our beacon hardware design will include three upward-facing wide-angle IR phototransistors arranged around a single wide-angle IR LED as seen in Figure 2. We chose three phototransistors to allow the option of calculating a rough angle measurement as shown in Figure 3. If we are able to determine the angle with a reasonable degree of accuracy, we will be able to remove a degree of freedom by using the angle along with the magnetometer in the IMU.
 
 ![PCB](../Pictures/PCB.png)
 **Figure 2**: High Level Beacon Design
@@ -29,7 +27,7 @@ Our beacon hardware design will include three upward-facing wide-angle IR photot
 ![Angle](../Pictures/Angle.png)
 **Figure 3**: Angle Measurement With Two Receivers on a Single Beacon
 
-In order to generate a symmetric distribution of light emitted from the beacon, we will use a card of some sort suspended over the emitter to reflect and scatter light as in Figure 4. After assembling the hardware, we will test a couple different ideas to reflect and scatter light. The simplest idea is to simply cut an index card into a circle, but we could also try a cone shape or try attaching aluminum foil to the index card to increase reflection.
+To generate a symmetric distribution of light emitted from the beacon, we will use a card of some sort suspended over the emitter to reflect and scatter light as in Figure 4. After assembling the hardware, we will test a couple different ideas to reflect and scatter light. The simplest idea is to simply cut an index card into a circle, but we could also try a cone shape or try attaching aluminum foil to the index card to increase reflection.
 
 ![Reflect](../Pictures/Reflect.png)
 **Figure 4**: IR Led with Reflector.
@@ -50,6 +48,7 @@ To further utilize the IMU and improve our accuracy, we can use the RoNIN naviga
 BLE communication between multiple transmitting and receiving devices is well established and used in many real world applications (6). Additionally, the protocol was designed to minimize energy consumption without introducing significant latency (7). This makes it ideal for our embedded system, which will be powered by batteries and calculating positions in real time. For our system, we will use the ArduinoBLE library to set up our network(8). With this library, each BLE device can simultaneously act as a central and peripheral device, forming a completely connected network. Any two devices in the network can transmit and receive to each other by subscribing and posting to their bulletin boards.  
 
 Citation:
+
 (1) Kirchner, Nathan. Infrared Localisation for Indoor UAVs. Research Gate, 2005, researchgate.net/publication/252825877_Infrared_Localisation_for_Indoor_UAVs. 
 
 (2) Eric Brassart GRACSY. Groupe de Recherche sur l'Analyse et la Commande des SYstèmes, et al. “Localization Using Infrared Beacons.” Robotica, 1 Mar. 2000, dl.acm.org/doi/10.1017/S0263574799001927. 
