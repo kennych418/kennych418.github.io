@@ -43,6 +43,7 @@ Since we are constrained to a small number of beacons due to the cost of additio
 2. As a beacon moves, its position updates correctly on a relative coordinate system.<br>
 3. Comparison of IMU results and IR beacon results.<br>
 4. Improved localization using both IMU and IR beacon results.<br>
+5. Full transmit and receive between all devices over BLE.<br>
 
 ### Analysis of Previous Literature
 There is a large amount of prior work in the realm of indoor localization using IR beacons, but our intended approach of using beacons with changing positions to determine relative positioning seems to be somewhat new.
