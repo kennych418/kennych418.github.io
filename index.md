@@ -46,9 +46,11 @@ Since we are constrained to a small number of beacons due to the cost of additio
 5. Full transmit and receive between all devices over BLE.<br>
 
 ### Implementation
-Work in progress.
-We were able to finalize the schematic of our system and design a PCB. 
+Work in progress, updated as of 11/10/2020.
+We were able to finalize the schematic of our system and design a PCB. Each board will contain the 3 IR receivers and 1 IR emitter mentioned previously with circuits designed to drive them. We chose and ordered our compenents to meet our system's specs. 
+![PCB](../Pictures/PCB.png)
 Additionally, we CAD designed a frame to mount our PCB in. The frames should help keep all of our devices consistent by suspending the electronics and IR reflector at a level height. 
+![STL](../Pictures/STL.png)
 Softwarewise, we were able to connect multiple Arduino 33 BLE Sense controllers together and communicate through a BLE network. Our goal moving forward is to design a smarter intialization process such that the devices can dynamically configure themselves as a peripheral or central device.
 
 ### Prior Work Analysis
