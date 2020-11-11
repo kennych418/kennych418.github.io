@@ -15,7 +15,7 @@ We will explore the possibility of using IR beacons for small-scale relative loc
 ### Plan to Maintain Safe Social Distancing
 Since the IR beacons will be relatively inexpensive, we plan to design and order enough of those that we will not need to work together in person. We will design and order the boards and parts for these early with the intent for each of us to have components totaling 5 beacons. In addition to the 2 Arduino Nano 33 BLE Sense modules we own, we will be able to borrow 3 more, so we will only need to purchase one more to have 3 each. This will give us access to 3 BLE/IMU modules to go with 5 IR beacon nodes. We will share code and hardware designs on github and use Zoom for brainstorming and troubleshooting meetings.
 
-### Project Proposal
+### Project Goals and Technical Approach
 With the increase in IoT devices hitting the market, there is a increasing demand for orientation tracking between many mobile or wearable devices. However, traditional localization methods either require stationary beacons or have limited accuracy in a smaller, more personal scale. 
 
 We will build a system that resolves constraints by tracking relative position based on mobile IR beacons. The beacons will contain identical hardware and be based around the Arduino Nano 33 BLE Sense. These beacons triangulate relative position based on the received IR intensity and the locations of the other beacons. To avoid crosstalk, the beacons will flash in turn in an order coordinated over BLE as shown in Figure 1. Although a standard approach based on distances alone would use 3 stationary beacons and a single moving device, we will attempt to use only 3 devices and handle the additional degrees of freedom using each device’s IMU and/or angle measurements.
@@ -45,7 +45,11 @@ Since we are constrained to a small number of beacons due to the cost of additio
 4. Improved localization using both IMU and IR beacon results.<br>
 5. Full transmit and receive between all devices over BLE.<br>
 
-### Analysis of Previous Literature
+### Implementation
+Work in progress.
+
+
+### Prior Work Analysis
 There is a large amount of prior work in the realm of indoor localization using IR beacons, but our intended approach of using beacons with changing positions to determine relative positioning seems to be somewhat new.
 
 Indoor IR localization has been used in past work for navigation for robots and UAVs (1, 4, 5). Most of these works use some form of stationary beacons or markers and they range from using a very small number of sophisticated emitters and receiver devices to using a large number of simple markers for navigation. The simplest technique to determine location is to triangulate using distances from known points (2, 3) but there is one source that used servo motors and highly directional receivers to determine angles to a flying object (1). Since our goal is to determine relative location in a 2D plane without adding moving parts to our beacons, we will use a technique similar to the first method with a few added complications due to making the beacons mobile instead of stationary. To use emitter beacons for triangulation, signals from the beacons need to be distinguished from each other. The IR beacons can flash in coded patterns or with different frequencies so they can be separated using signal processing (2, 3). Since our beacons will have BLE, we are planning to coordinate blinking order over BLE to avoid signal processing overhead.
@@ -107,6 +111,11 @@ Citation:
 
 ### Limitations
 
-### Future Improvements
+### Strengths and weakness, and future directions
 
+### Teammate Contributions
+Alex: IMU dead reckoning, PCB design, IR control code
+Kenny: 3D printing, BLE code, project website
+
+### Final Presentation
 
