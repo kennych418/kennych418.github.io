@@ -47,7 +47,9 @@ Since we are constrained to a small number of beacons due to the cost of additio
 
 ### Implementation
 Work in progress.
-
+We were able to finalize the schematic of our system and design a PCB. 
+Additionally, we CAD designed a frame to mount our PCB in. The frames should help keep all of our devices consistent by suspending the electronics and IR reflector at a level height. 
+Softwarewise, we were able to connect multiple Arduino 33 BLE Sense controllers together and communicate through a BLE network. Our goal moving forward is to design a smarter intialization process such that the devices can dynamically configure themselves as a peripheral or central device.
 
 ### Prior Work Analysis
 There is a large amount of prior work in the realm of indoor localization using IR beacons, but our intended approach of using beacons with changing positions to determine relative positioning seems to be somewhat new.
