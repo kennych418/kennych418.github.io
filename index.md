@@ -111,8 +111,6 @@ Citation:
 *Goals:* Record and edit demo video.<br>
 *Critical:* Demo video. Project website. Github. Cleaned code.<br>
 
-### Limitations
-
 ### Strengths and weakness, and future directions
 
 ### Teammate Contributions
