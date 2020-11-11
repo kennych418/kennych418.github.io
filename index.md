@@ -25,7 +25,7 @@ We will build a system that resolves constraints by tracking relative position b
 
 Our beacon hardware design will include three upward-facing wide-angle IR phototransistors arranged around a single wide-angle IR LED as seen in Figure 2. We chose three phototransistors so that each device can calculate a rough angle measurement as shown in Figure 3. Additionally, each device will have an IMU for orientation tracking. If we are able to determine the angle with a reasonable degree of accuracy, we can leverage the IMU’s magnetometer to calculate a heading and track each device’s angle from one another. Doing so will remove a degree of freedom and reduce the minimum number of nodes from 4 to 3, matching the requirements of the traditional 3 stationary beacon localization.
 
-![PCB](../Pictures/PCB.png)
+![BoardView](../Pictures/BoardView.png)
 **Figure 2**: High Level Beacon Design
 
 ![Angle](../Pictures/Angle.png)
@@ -48,9 +48,13 @@ Since we are constrained to a small number of beacons due to the cost of additio
 ### Implementation
 Work in progress, updated as of 11/10/2020.
 We were able to finalize the schematic of our system and design a PCB. Each board will contain the 3 IR receivers and 1 IR emitter mentioned previously with circuits designed to drive them. We chose and ordered our compenents to meet our system's specs. 
+
 ![PCB](../Pictures/PCB.png)
-Additionally, we CAD designed a frame to mount our PCB in. The frames should help keep all of our devices consistent by suspending the electronics and IR reflector at a level height. 
+
+Additionally, we CAD designed a frame to mount our PCB in. The frames should help keep all of our devices consistent by suspending the electronics and IR reflector at a level height.
+
 ![STL](../Pictures/STL.png)
+
 Softwarewise, we were able to connect multiple Arduino 33 BLE Sense controllers together and communicate through a BLE network. Our goal moving forward is to design a smarter intialization process such that the devices can dynamically configure themselves as a peripheral or central device.
 
 ### Prior Work Analysis
