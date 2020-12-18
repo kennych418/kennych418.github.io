@@ -50,8 +50,8 @@ Since we are constrained to a small number of beacons due to the cost of additio
 5. Full transmit and receive between all devices over BLE.<br>
 
 ### Implementation
-#### Part 1 Hardware and Physical Design
-We were able to finalize the schematic of our system and design a PCB. Each board will contain the 3 IR receivers and 1 IR emitter mentioned previously with circuits designed to drive them. We chose and ordered our compenents to meet our system's specs. 
+#### Part 1: Hardware and Physical Design
+We started by designing the schematic, PCB, and node frames for our system. Each PCB contains the 3 IR receivers and 1 IR emitter mentioned previously with circuits designed to drive them. We chose and ordered our compenents to meet our system's specs. 
 
 ![PCB](../Pictures/PCB.png)
 
@@ -97,7 +97,9 @@ Citation:
 (10) Herath, Sachini, et al. RoNIN: Robust Neural Inertial Navigation in the Wild: Benchmark, Evaluations, & New Methods. IEEE, 2020, ieeexplore.ieee.org/abstract/document/9196860?casa_token=4WmmRORA2QQAAAAA:iOOFTQS93sPSI0iWvwYh9oqWRfsBjfUxqikYEWXALpCwhNK25Lx-uWKcr2RJIAN2YCjV8mT0pwvp.
 
 ### Strengths and weakness, and future directions
-Previously, we assumed that the Arduino BLE library would be able to support multiple devices on one network. However, the latest version of the Arduino BLE library is not capable of this and [the developers are actively working on adding these features in later versions](https://github.com/Polldo/ArduinoCore-nRF528x-mbedos/tree/ble-multiconnection). As a result, we had to work around this issue by setting up our own connectionless BLE network. Each BLE device will store their data inside the advertised name and use their advertised service as an "access key". When a scanning device finds the appropriate service with matching key, it will read the advertising device's name to retreive the data. This significantly increases our communication latency and causes stability issues. In the future, we could resolve this issue by using a different wireless communication protocol, such as WiFi or through the [NRF24l01p radios](https://www.circuitspecialists.com/nrf24l01-rf_2.4ghz_wireless_rf_transceiver_module.html?otaid=gpl&gclid=CjwKCAiAoOz-BRBdEiwAyuvA69Kf8-fZB5ppQD3jk07F619GLFNIQDuF9jELwB3YJsO6pOIcf8_t-xoCkjYQAvD_BwE). 
+Previously, we assumed that the Arduino BLE library would be able to support multiple devices on one network. However, the latest version of the Arduino BLE library is not capable of this and [the developers are actively working on adding these features in later versions](https://github.com/Polldo/ArduinoCore-nRF528x-mbedos/tree/ble-multiconnection). As a result, we had to work around this issue by setting up our own connectionless BLE network. Each BLE device will store their data inside the advertised name and use their advertised service as an "access key". When a scanning device finds the appropriate service with matching key, it will read the advertising device's name to retreive the data. This significantly increases our communication latency and causes stability issues. In the future, we could resolve this issue by using a different wireless communication protocol, such as WiFi. 
+
+The Arduino's 5V-3.3V regulator module can not source enough current to meet our design's goal. We realized that the Arduinos would crash while collecting data, especially when driven through a USB splitter adaptor that would further limit our current. To account for this, we adjusted our software to spread out our high current operations to reduce our average power. In terms of design, we could completely resolve this by using LiPo batteries as our voltage source and using a separate 5V-3.3V regulator that can support higher output current.
 
 ### Teammate Contributions
 Alex: IMU dead reckoning, PCB design, IR control code
