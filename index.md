@@ -2,10 +2,6 @@
 
 [Source Code Github Link](https://github.com/kennych418/IR_Localization/tree/master)
 
-### Team Members
-Alexander Graening
-Kenny Chan
-
 ### Final Presentation Video
 [Link](https://www.youtube.com/)
 
@@ -99,7 +95,7 @@ Citation:
 (9) Andreas, Biri. Localizing Mobile Nodes in a Relative Coordinate System. Institute of Information Security, 2017, n.ethz.ch/~abiri/download/Theses/abiri_semester_thesis_1.pdf.
 
 (10) Herath, Sachini, et al. RoNIN: Robust Neural Inertial Navigation in the Wild: Benchmark, Evaluations, & New Methods. IEEE, 2020, ieeexplore.ieee.org/abstract/document/9196860?casa_token=4WmmRORA2QQAAAAA:iOOFTQS93sPSI0iWvwYh9oqWRfsBjfUxqikYEWXALpCwhNK25Lx-uWKcr2RJIAN2YCjV8mT0pwvp.
-
+<!---
 ### Project Timeline
 **Week 5:**<br>
 *Goals:* Finish Schematic. Order components. BLE communication between devices. Time synchronization using BLE.<br>
@@ -124,7 +120,7 @@ Citation:
 **Week 10:**<br>
 *Goals:* Record and edit demo video.<br>
 *Critical:* Demo video. Project website. Github. Cleaned code.<br>
-
+--->
 ### Strengths and weakness, and future directions
 
 ### Teammate Contributions
