@@ -74,6 +74,8 @@ Additionally, we CAD designed a frame to mount our PCB in. The frames should hel
 #### Part 2: BLE Communication
 Softwarewise, we ran into trouble trying to establish a connection between more than 2 BLE devices as we originally intended. To work around this issue, we designed our own connectionless BLE network where data is stored and transferred through the broadcasting device's local name. Figure 4 shows an example of how the network functions. On start up, all the beacons will quickly alternate between broadcasting their unique device ID and scanning for other device IDs. This will allow them to synchronize their communications. Afterwards, the beacons will take turns broadcasting their data. Only one beacon can broadcast each turn, while the others scan for the data. The beacons share a common advertised service UUID that they will use as a key to verify that they are actually IR beacons and not some other random BLE device.
 
+![BLE](../Pictures/BLE.png)
+
 #### Part 3: Synchronization
 *ALEX INSERT INFO*
 
