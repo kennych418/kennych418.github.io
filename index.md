@@ -9,7 +9,7 @@
 With the increase in IoT devices hitting the market, there is a rising demand for orientation tracking between many mobile or wearable devices. For example, Apple is developing many personal, interconnected devices such as the iPhone, iWatch, and Airpods. These devices can benefit from know whether they are currently on the user's wrist, in their pocket, or far away out of reach. However, traditional localization methods either require stationary beacons or have limited accuracy in a smaller, more personal scale. As a result, these schemes do not work for the growing market of mobile, wearable devices. We aim solve this conflict by designing wireless nodes that can be integrated into devices and enable relative position tracking between similarly networked devices. 
 
 ### Abstract
-We explore the possibility of using IR beacons for small-scale relative localization between objects. Each node will have one IR emitter beacon and multiple IR receivers. The beacons will each be equipped with BLE and IMU from an Arduino Nano 33 BLE Sense. These beacons will coordinate blinking patterns over BLE to avoid crosstalk. To generate a symmetric light pattern, we will use a card or irregular lens to scatter the light in a uniform pattern around the beacon. Since each beacon will have an IMU we will use this to improve localization accuracy and determine directions of motion. We also explore using a version of IMU dead reckoning to further improve localization accuracy.
+We explore the possibility of using IR beacons for small-scale relative localization between objects. Each node will have one IR emitter beacon and multiple IR receivers. The beacons will each be equipped with BLE capabilities and an IMU from an Arduino Nano 33 BLE Sense. These beacons will coordinate blinking patterns over BLE such that only one beacon at a time is emitting IR towards the others to be received. Once the receiving beacon measures the IR value it detects, it will apply a dead reckoning algorithm with the measured values to estimate its distance from the emitter. To generate a symmetric light pattern, we will use a card or irregular lens to scatter the light in a uniform pattern around the beacon. Since each beacon will have an IMU we will further use this to improve localization accuracy, determine directions of motion, and track each object's heading.
 
 ### Prior Work Analysis
 There is a large amount of prior work in the realm of indoor localization using IR beacons, but our intended approach of using beacons with changing positions to determine relative positioning seems to be somewhat new.
@@ -30,9 +30,6 @@ BLE communication between multiple transmitting and receiving devices is well es
 3.       BLE Synchronization: Since we intend to have independent “equal” nodes, we will need to work out synchronizing the beacons without a clear master node.
 4.       IMU Dead Reckoning Localization: We will try to implement a version of IMU dead reckoning based on existing literature.
 5.       Data Fusion: We will use data from sensor distances and IMU to calculate relative locations of the nodes.
-
-### Maintaining Safe Social Distancing
-Since the IR beacons were relatively inexpensive, we designed and ordered enough for the both of us to use without having to meet in person. We designed and order the boards and parts early with the intent for each of us to have components totaling 5 beacons. In addition to the 2 Arduino Nano 33 BLE Sense modules we own, we borrowed 3 and purchased 1 more. This gave each of us access to 3 BLE/IMU modules to go with 5 IR beacon nodes. We shareed code and hardware designs on github and used Zoom for brainstorming and troubleshooting meetings.
 
 ### Project Goals and Technical Approach
 We will build a system that resolves constraints by tracking relative position based on mobile IR beacons. The beacons will contain identical hardware and be based around the Arduino Nano 33 BLE Sense. These beacons triangulate relative position based on the received IR intensity and the locations of the other beacons. To avoid crosstalk, the beacons will flash in turn in an order coordinated over BLE as shown in Figure 1. Although a standard approach based on distances alone would use 3 stationary beacons and a single moving device, we will attempt to use only 3 devices and handle the additional degrees of freedom using each device’s IMU and/or angle measurements.
@@ -82,6 +79,9 @@ The Arduino's 5V-3.3V regulator module can not source enough current to meet our
 ### Teammate Contributions
 Alex: IMU dead reckoning, PCB design, IR control code
 Kenny: 3D printing, BLE code, project website
+
+### Maintaining Safe Social Distancing
+Since the IR beacons were relatively inexpensive, we designed and ordered enough for the both of us to use without having to meet in person. We designed and order the boards and parts early with the intent for each of us to have components totaling 5 beacons. In addition to the 2 Arduino Nano 33 BLE Sense modules we own, we borrowed 3 and purchased 1 more. This gave each of us access to 3 BLE/IMU modules to go with 5 IR beacon nodes. We shareed code and hardware designs on github and used Zoom for brainstorming and troubleshooting meetings.
 
 ### Sources
 
