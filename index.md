@@ -63,19 +63,19 @@ Since we are constrained to a small number of beacons due to the cost of additio
 
 ### VII. Implementation
 #### Part 1: Hardware and Physical Design
-We started by designing the schematic, PCB, and node frames according to our technical approach plan. Each PCB contains the 3 IR receivers and 1 IR emitter mentioned previously with circuits designed to drive them. We chose and ordered our compenents to meet our system's specs. 
+We started by designing the schematic, PCB, and node frames according to our technical approach plan. Each PCB contains the 3 IR receivers and 1 IR emitter mentioned previously with circuits designed to drive them. We chose and ordered our compenents to meet our system's specs. Once assembled, we validated the performance of the IR emitter and receiver circuits alone without any software control from the microcontrollers. 
 
 ![PCB](../Pictures/PCB.png)
 
-Additionally, we CAD designed a frame to mount our PCB in. The frames should help keep all of our devices consistent by suspending the electronics and IR reflector at a level height.
+Additionally, we CAD designed a frame to mount our PCB in. The frames keep all of our devices consistent by suspending the electronics and IR reflector at a level height.
 
 ![STL](../Pictures/STL.png)
 
 #### Part 2: BLE Communication
-Softwarewise, we ran into trouble trying to establish a connection between more than 2 BLE devices as we originally intended. To work around this issue, we designed our own connectionless BLE network where data is stored and transferred through the broadcasting device's local name. Figure 4 shows an example of how the network functions. On start up, all the beacons will quickly alternate between broadcasting their unique device ID and scanning for other device IDs. This will allow them to synchronize their communications. Afterwards, the beacons will take turns broadcasting their data. Only one beacon can broadcast each turn, while the others scan for the data. The beacons share a common advertised service UUID that they will use as a key to verify that they are actually IR beacons and not some other random BLE device.
+Softwarewise, we ran into trouble establishing a connection between more than 2 BLE devices as we originally intended. To work around this issue, we designed our own connectionless BLE network where data is stored and transferred through the broadcasting device's local name. Figure 4 shows an example of how the network functions. On start up, all the beacons will quickly alternate between broadcasting their unique device ID and scanning for other device IDs. This will allow them to synchronize their communications. Afterwards, the beacons will take turns broadcasting their data. Only one beacon will scan for data each turn, while the others broadcast their measurements. The beacons share a common advertised service UUID that they will use as a key to verify that they are actually IR beacons and not some other random BLE device.
 
 ![BLE](../Pictures/BLE.png)
-**Figure 4**: Shows the typical communication flow with 3 nodes. Stage 1 starts the network initialization, then the nodes loop through stage 2-4 with only one beacon broadcasting at a time.
+**Figure 4**: Shows the typical communication flow with 3 nodes. Stage 1 starts the network initialization, then the nodes loop through stage 2-4 with only one beacon scanning at a time.
 
 #### Part 3: Synchronization
 *ALEX INSERT INFO*
