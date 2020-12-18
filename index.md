@@ -26,15 +26,21 @@ To further utilize the IMU and improve our accuracy, we can use the RoNIN naviga
 
 Libraries for BLE communication between multiple transmitting and receiving devices exist and are readily usable (6) (updated in strengths and weaknesses section). Additionally, the protocol was designed to minimize energy consumption without introducing significant latency (7). This makes it ideal for our embedded system, which will be powered by batteries and calculating positions in real time. For our system, we will use the ArduinoBLE library to set up our network (8). With this library, each BLE device can simultaneously act as a central or peripheral device, forming a connected network. Any two central devices in the network can transmit and receive to each other by subscribing and posting to a main peripheral's bulletin boards.  
 
-### Main Project Goals and Components
-Our goals are to measure distance between beacons down to an accuracy varying by about 5mm. Additionally, we need to be able to localize the beacons without using anything that is stationary or restricts movement.
+### Main Project Components
 1.       Hardware: This project includes a relatively small custom PCB and 3D printed frame.
 2.       Sensor Calibration: IR emitters and receivers are calibrated to gather distance and direction values as soon as the hardware arrives.
 3.       BLE Synchronization: Since we intend to have independent “equal” nodes, we worked out synchronization between beacons without a predefined master node.
 4.       IMU Dead Reckoning Localization: We implemented a version of IMU dead reckoning using a *ALEX INSERT INFO*.
 5.       Data Fusion: We use data from sensor distances and the onboard IMU to calculate relative locations of the nodes.
 
-### Project Goals and Technical Approach
+### Goals and Deliverables
+1. Each beacon can measure distances from other beacons with accuracy varying by about 5mm without any stationary elements.<br>
+2. As a beacon moves, its position updates correctly on a relative coordinate system.<br>
+3. Comparison of IMU results and IR beacon results.<br>
+4. Improved localization using both IMU and IR beacon results.<br>
+5. Full transmit and receive between all devices over BLE.<br>
+
+### Technical Approach
 The beacons will contain identical hardware and be based around the Arduino Nano 33 BLE Sense. These beacons triangulate relative position based on the received IR intensity and the locations of the other beacons. To avoid crosstalk, the beacons will flash in turn in an order coordinated over BLE as shown in Figure 1. Although a standard approach based on distances alone would use 3 stationary beacons and a single moving device, we will attempt to use only 3 devices and handle the additional degrees of freedom using each device’s IMU and/or angle measurements.
 
 ![3Beacons](../Pictures/3pics.png)
@@ -54,13 +60,6 @@ To generate a symmetric distribution of light emitted from the beacon, we will u
 **Figure 4**: IR Led with Reflector.
 
 Since we are constrained to a small number of beacons due to the cost of additional nanos, we will use the IMU on the Arduino Nano 33 BLE Sense to detect which beacons are moving and will need to update their positions and to implement a dead reckoning system that will provide redundancy and allow us to detect and handle errors in IR distances.
-
-### Deliverables
-1. Each beacon can measure distances from other beacons.<br>
-2. As a beacon moves, its position updates correctly on a relative coordinate system.<br>
-3. Comparison of IMU results and IR beacon results.<br>
-4. Improved localization using both IMU and IR beacon results.<br>
-5. Full transmit and receive between all devices over BLE.<br>
 
 ### Implementation
 #### Part 1: Hardware and Physical Design
