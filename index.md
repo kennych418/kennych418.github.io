@@ -87,6 +87,10 @@ Softwarewise, we ran into trouble establishing a connection between more than 2 
 
 
 ### VIII. Results
+#### Part 1: Hardware and Physical Design Validation
+
+
+#### Part 2: Distance Measurement
 *INSERT INFO LATER*
 
 ### IX. Strengths and weakness, and future directions
@@ -94,9 +98,11 @@ Previously, we assumed that the Arduino BLE library would be able to support mul
 
 The Arduino's 5V-3.3V regulator module can not source enough current to meet our design's goal. We realized that the Arduinos would crash while collecting data, especially when driven through a USB splitter adaptor that would further limit our current. To account for this, we adjusted our software to spread out our high current operations to reduce our average power. In terms of design, we could completely resolve this by using LiPo batteries as our voltage source and using a separate 5V-3.3V regulator that can support higher output current.
 
+The 3D printed frame could be redesigned to avoid pillars that reflect and block IR emissions. Instead of using the typical off-the-self PLA that we used for the current design, we could use a different material that is transparent to IR, such as the plastic used on IR-based TV remotes.
+
 ### X. Teammate Contributions
 Alex: IMU dead reckoning, PCB design, IR control code.<br>
-Kenny: 3D printing, BLE code, project website.
+Kenny: 3D printing, BLE code, project website, visualizer script.
 
 ### XI. Maintaining Safe Social Distancing
 Since the IR beacons were relatively inexpensive, we designed and ordered enough for the both of us to use without having to meet in person. We designed and order the boards and parts early with the intent for each of us to have components totaling 5 beacons. In addition to the 2 Arduino Nano 33 BLE Sense modules we own, we borrowed 3 and purchased 1 more. This gave each of us access to 3 BLE/IMU modules to go with 5 IR beacon nodes. We shareed code and hardware designs on github and used Zoom for brainstorming and troubleshooting meetings.
