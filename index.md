@@ -11,7 +11,7 @@ With the increase in IoT devices hitting the market, there is a rising demand fo
 ![Intro](../Pictures/Intro.png)
 
 ### II. Abstract
-We explore the possibility of using IR beacons for small-scale relative localization between objects. Each node will have one IR emitter beacon and multiple IR receivers. The beacons will each be equipped with BLE capabilities and an IMU from an Arduino Nano 33 BLE Sense. These beacons will coordinate blinking patterns over BLE such that only one beacon at a time is emitting IR towards the others to be received. Once the receiving beacon measures the IR value it detects, it will apply a dead reckoning algorithm with the measured values to estimate its distance from the emitter. To generate a symmetric light pattern, we will use a card or irregular lens to scatter the light in a uniform pattern around the beacon. Since each beacon will have an IMU we will further use this to improve localization accuracy, determine directions of motion, and track each object's heading.
+We explore the possibility of using IR beacons for small-scale relative localization between objects. Each node will have one IR emitter beacon and multiple IR receivers. The beacons will each be equipped with BLE capabilities and an IMU from an Arduino Nano 33 BLE Sense. These beacons will coordinate blinking patterns over BLE such that only one beacon at a time is emitting IR towards the others to be received. Once the receiving beacon measures the IR value it detects, it will pass the measured values through a trained neural network to estimate its distance from the emitter. To generate a symmetric light pattern, we will use a card or irregular lens to scatter the light in a uniform pattern around the beacon. Since each beacon will have an IMU we will further use this to improve localization accuracy, determine directions of motion, and track each object's heading.
 
 ### III. Prior Work Analysis
 There is a large amount of prior work in the realm of indoor localization using IR beacons, but our intended approach of using beacons with changing positions to determine relative positioning seems to be somewhat new.
@@ -30,7 +30,7 @@ Libraries for BLE communication between multiple transmitting and receiving devi
 1.       Hardware: This project includes a relatively small custom PCB and 3D printed frame.
 2.       Sensor Calibration: IR emitters and receivers are calibrated to gather distance and direction values as soon as the hardware arrives.
 3.       BLE Synchronization: Since we intend to have independent “equal” nodes, we worked out synchronization between beacons without a predefined master node.
-4.       IMU Dead Reckoning Localization: We implemented a version of IMU dead reckoning using a *ALEX INSERT INFO*.
+4.       Distance Estimating Neural Network: We implemented a neural network through TensorflowLite to .
 5.       Data Fusion: We use data from sensor distances and the onboard IMU to calculate relative locations of the nodes.
 
 ### V. Goals and Deliverables
@@ -125,3 +125,4 @@ Since the IR beacons were relatively inexpensive, we designed and ordered enough
 
 (11) Mishra, Manasi. “Rise of Wearables and Future of Wearable Technology.” Medium, Medium, 22 Aug. 2018, medium.com/@manasim.letsnurture/rise-of-wearables-and-future-of-wearable-technology-1a4e38a2fbb6. 
 
+(12) Tensorflow Lite Example https://github.com/tensorflow/tensorflow/tree/master/tensorflow/lite/micro/examples/magic_wand
