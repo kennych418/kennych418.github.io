@@ -84,7 +84,10 @@ Softwarewise, we ran into trouble establishing a connection between more than 2 
 With the BLE network and synchronization established, we collected data between 2 nodes at 3 angles and 3 distances to train and validate our distance estimating neural network. *ALEX INSERT INFO*
 
 #### Part 5: Visualize and Compare
+To easily demonstrate the functionality of our system, we created a script in python to visualize the location of each beacon with respect to a reference. A single beacon is connected through a USB to a computer running the visualizer script. The Arduino will print all of its data to the computer's COM port, where the script with parse the data and animate the beacons on a 2D coordinate system. Figure 5 shows two screenshots from the script with one beacon moving.
 
+![Visualizer](../Pictures/Visualizer.png)
+**Figure 5**: Two screenshots of the visualizer script that show the movement of the leftmost beacon closer towards the reference beacon.
 
 ### VIII. Results
 #### Part 1: Hardware and Physical Design Validation
