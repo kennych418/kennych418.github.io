@@ -50,7 +50,6 @@ Since we are constrained to a small number of beacons due to the cost of additio
 5. Full transmit and receive between all devices over BLE.<br>
 
 ### Implementation
-Work in progress, updated as of 11/10/2020.
 We were able to finalize the schematic of our system and design a PCB. Each board will contain the 3 IR receivers and 1 IR emitter mentioned previously with circuits designed to drive them. We chose and ordered our compenents to meet our system's specs. 
 
 ![PCB](../Pictures/PCB.png)
@@ -95,33 +94,9 @@ Citation:
 (9) Andreas, Biri. Localizing Mobile Nodes in a Relative Coordinate System. Institute of Information Security, 2017, n.ethz.ch/~abiri/download/Theses/abiri_semester_thesis_1.pdf.
 
 (10) Herath, Sachini, et al. RoNIN: Robust Neural Inertial Navigation in the Wild: Benchmark, Evaluations, & New Methods. IEEE, 2020, ieeexplore.ieee.org/abstract/document/9196860?casa_token=4WmmRORA2QQAAAAA:iOOFTQS93sPSI0iWvwYh9oqWRfsBjfUxqikYEWXALpCwhNK25Lx-uWKcr2RJIAN2YCjV8mT0pwvp.
-<!---
-### Project Timeline
-**Week 5:**<br>
-*Goals:* Finish Schematic. Order components. BLE communication between devices. Time synchronization using BLE.<br>
-*Critical:* All hardware orders must be complete as early in the week as possible.<br>
 
-**Week 6:**<br>
-*Goals:* Access IMU. Implement dead reckoning and detection of motion. Implement a 2D location visualization app of some sort on the computer. Assemble and test devices when they arrive. Exchange parts.<br>
-*Critical:* BLE Communication between devices must be reliable. Time synchronization must be reliable and extend to multiple devices.<br>
-
-**Week 7:**<br>
-*Goals:* Assemble all node devices. Model IR intensity as a function of distance. Test scattering reflector for IR emitter. Verify that the IMU, IR transmitters, and IR receivers work.<br>
-*Critical:* Must have assembled hardware.<br>
-
-**Week 8:**<br>
-*Goals:* Completed project by the end of this week. Present preliminary results to the class.<br>
-*Critical:* Verify that the nodes can track the distance from each other. Write the code that will calculate their relative position from one another.<br>
-
-**Week 9:**<br>
-*Goals:* Comment code. Write report. Remove any bugs. Polish the software and interface. Make website look clean. Name for project.<br>
-*Critical:* Must have complete project with working hardware.<br>
-
-**Week 10:**<br>
-*Goals:* Record and edit demo video.<br>
-*Critical:* Demo video. Project website. Github. Cleaned code.<br>
--->
 ### Strengths and weakness, and future directions
+Previously, we assumed that the Arduino BLE library would be able to support multiple devices on one network. However, the latest version of the Arduino BLE library is not capable of this and [the developers are actively working on adding these features in later versions](https://github.com/Polldo/ArduinoCore-nRF528x-mbedos/tree/ble-multiconnection). As a result, we had to work around this issue by setting up our own connectionless BLE network. Each BLE device will store their data inside the advertised name and use their advertised service as an "access key". When a scanning device finds the appropriate service with matching key, it will read the advertising device's name to retreive the data. This significantly increases our communication latency and causes stability issues. In the future, we could resolve this issue by using a different wireless communication protocol, such as WiFi or through the [NRF24l01p radios](https://www.circuitspecialists.com/nrf24l01-rf_2.4ghz_wireless_rf_transceiver_module.html?otaid=gpl&gclid=CjwKCAiAoOz-BRBdEiwAyuvA69Kf8-fZB5ppQD3jk07F619GLFNIQDuF9jELwB3YJsO6pOIcf8_t-xoCkjYQAvD_BwE). 
 
 ### Teammate Contributions
 Alex: IMU dead reckoning, PCB design, IR control code
