@@ -72,15 +72,19 @@ Additionally, we CAD designed a frame to mount our PCB in. The frames should hel
 ![STL](../Pictures/STL.png)
 
 #### Part 2: BLE Communication
-Softwarewise, we were able to connect multiple Arduino 33 BLE Sense controllers together and communicate through a BLE network. Our goal moving forward is to design a smarter intialization process such that the devices can dynamically configure themselves as a peripheral or central device.
+Softwarewise, we ran into trouble trying to establish a connection between more than 2 BLE devices as we originally intended. To work around this issue, we designed our own connectionless BLE network where data is stored and transferred through the broadcasting device's local name. Figure 4 shows an example of how the network functions. On start up, all the beacons will quickly alternate between broadcasting their unique device ID and scanning for other device IDs. This will allow them to synchronize their communications. Afterwards, the beacons will take turns broadcasting their data. Only one beacon can broadcast each turn, while the others scan for the data. The beacons share a common advertised service UUID that they will use as a key to verify that they are actually IR beacons and not some other random BLE device.
 
 #### Part 3: Synchronization
+*ALEX INSERT INFO*
 
 #### Part 4: Calculating Distance
+*ALEX INSERT INFO*
 
 #### Part 5: Visualize and Compare
 
+
 ### Results
+*INSERT INFO LATER*
 
 ### Strengths and weakness, and future directions
 Previously, we assumed that the Arduino BLE library would be able to support multiple devices on one network. However, the latest version of the Arduino BLE library is not capable of this and [the developers are actively working on adding these features in later versions](https://github.com/Polldo/ArduinoCore-nRF528x-mbedos/tree/ble-multiconnection). As a result, we had to work around this issue by setting up our own connectionless BLE network. Each BLE device will store their data inside the advertised name and use their advertised service as an "access key". When a scanning device finds the appropriate service with matching key, it will read the advertising device's name to retreive the data. This significantly increases our communication latency and causes stability issues. In the future, we could resolve this issue by using a different wireless communication protocol, such as WiFi. 
