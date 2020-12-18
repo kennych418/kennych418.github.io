@@ -81,14 +81,20 @@ Softwarewise, we ran into trouble establishing a connection between more than 2 
 *ALEX INSERT INFO*
 
 #### Part 4: Calculating Distance
-*ALEX INSERT INFO*
+With the BLE network and synchronization established, we collected data between 2 nodes at 3 angles and 3 distances to train and validate our distance estimating neural network. *ALEX INSERT INFO*
 
 #### Part 5: Visualize and Compare
 
 
 ### VIII. Results
 #### Part 1: Hardware and Physical Design Validation
+We measured the voltage output of our IR receiver circuits against one IR emitter to verify whether the circuits met out specifications. We used a hand mirror as an ideal reflector and took measurements in a dark room to eliminate any interferance from other sources. The results for the circuit consistency, receiver variance, and emitter symmetry are summarized below. We were also able to verify 
 
+| Metric | Max Percent Error |
+| ------ | ----------------- |
+| Consistency | 4.7% |
+|Receiver Variance| 5.8% |
+|Emitter Symmetry| 10.5% |
 
 #### Part 2: Distance Measurement
 *INSERT INFO LATER*
