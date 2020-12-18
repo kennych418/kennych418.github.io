@@ -120,7 +120,7 @@ Citation:
 **Week 10:**<br>
 *Goals:* Record and edit demo video.<br>
 *Critical:* Demo video. Project website. Github. Cleaned code.<br>
---->
+-->
 ### Strengths and weakness, and future directions
 
 ### Teammate Contributions
