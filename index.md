@@ -79,6 +79,10 @@ Softwarewise, we ran into trouble establishing a connection between more than 2 
 
 #### Part 3: Synchronization
 *ALEX INSERT INFO*
+![SyncBlock](../Pictures/SynchronizationBlockDiagram.png)
+
+
+![SyncRead](../Pictures/SynchronizationIRRead.png)
 
 #### Part 4: Calculating Distance
 With the BLE network and synchronization established, we collected data between 2 nodes at 3 angles and 3 distances to train and validate our distance estimating neural network. *ALEX INSERT INFO*
