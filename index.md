@@ -88,7 +88,7 @@ With the BLE network and synchronization established, we collected data between 
 
 ### VIII. Results
 #### Part 1: Hardware and Physical Design Validation
-We measured the voltage output of our IR receiver circuits against one IR emitter to verify whether the circuits met out specifications. We used a hand mirror as an ideal reflector and took measurements in a dark room to eliminate any interferance from other sources. The results for the circuit consistency, receiver variance, and emitter symmetry are summarized below. We were also able to verify an approximately exponential relation between the measured voltage and the distance between beacons.
+We measured the voltage output of our IR receiver circuits against one IR emitter to verify whether the circuits met out specifications. We used a hand mirror as an ideal reflector and took measurements in a dark room to eliminate any interferance from other sources. The results for the circuit consistency, receiver variance, and emitter symmetry are summarized below. We were also able to verify an approximately exponential relation between the measured voltage and the distance between beacons. These results indicate that our hardware and physical design meets our expectations.
 
 | Metric | Max Percent Error |
 | ------ | ----------------- |
