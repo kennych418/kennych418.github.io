@@ -75,6 +75,7 @@ Additionally, we CAD designed a frame to mount our PCB in. The frames should hel
 Softwarewise, we ran into trouble trying to establish a connection between more than 2 BLE devices as we originally intended. To work around this issue, we designed our own connectionless BLE network where data is stored and transferred through the broadcasting device's local name. Figure 4 shows an example of how the network functions. On start up, all the beacons will quickly alternate between broadcasting their unique device ID and scanning for other device IDs. This will allow them to synchronize their communications. Afterwards, the beacons will take turns broadcasting their data. Only one beacon can broadcast each turn, while the others scan for the data. The beacons share a common advertised service UUID that they will use as a key to verify that they are actually IR beacons and not some other random BLE device.
 
 ![BLE](../Pictures/BLE.png)
+**Figure 4**: Shows the typical communication flow with 3 nodes. Stage 1 starts the network initialization, then the nodes loop through stage 2-4 with only one beacon broadcasting at a time.
 
 #### Part 3: Synchronization
 *ALEX INSERT INFO*
@@ -94,8 +95,8 @@ Previously, we assumed that the Arduino BLE library would be able to support mul
 The Arduino's 5V-3.3V regulator module can not source enough current to meet our design's goal. We realized that the Arduinos would crash while collecting data, especially when driven through a USB splitter adaptor that would further limit our current. To account for this, we adjusted our software to spread out our high current operations to reduce our average power. In terms of design, we could completely resolve this by using LiPo batteries as our voltage source and using a separate 5V-3.3V regulator that can support higher output current.
 
 ### X. Teammate Contributions
-Alex: IMU dead reckoning, PCB design, IR control code
-Kenny: 3D printing, BLE code, project website
+Alex: IMU dead reckoning, PCB design, IR control code.<br>
+Kenny: 3D printing, BLE code, project website.
 
 ### XI. Maintaining Safe Social Distancing
 Since the IR beacons were relatively inexpensive, we designed and ordered enough for the both of us to use without having to meet in person. We designed and order the boards and parts early with the intent for each of us to have components totaling 5 beacons. In addition to the 2 Arduino Nano 33 BLE Sense modules we own, we borrowed 3 and purchased 1 more. This gave each of us access to 3 BLE/IMU modules to go with 5 IR beacon nodes. We shareed code and hardware designs on github and used Zoom for brainstorming and troubleshooting meetings.
