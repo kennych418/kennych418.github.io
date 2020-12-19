@@ -123,7 +123,11 @@ Kenny: 3D printing, BLE code, project website, visualizer script.
 ### XI. Maintaining Safe Social Distancing
 Since the IR beacons were relatively inexpensive, we designed and ordered enough for the both of us to use without having to meet in person. We designed and order the boards and parts early with the intent for each of us to have components totaling 5 beacons. In addition to the 2 Arduino Nano 33 BLE Sense modules we own, we borrowed 3 and purchased 1 more. This gave each of us access to 3 BLE/IMU modules to go with 5 IR beacon nodes. We shareed code and hardware designs on github and used Zoom for brainstorming and troubleshooting meetings.
 
-### XII. Sources
+### XII. Other Links
+[Midterm Presentation](https://www.youtube.com/watch?v=xP3mTNycorA&feature=youtu.be&ab_channel=KennyChan)
+[Final Presentation](https://www.youtube.com/watch?v=xP3mTNycorA&feature=youtu.be&ab_channel=KennyChan)
+
+### XIII. Sources
 
 (1) Kirchner, Nathan. Infrared Localisation for Indoor UAVs. Research Gate, 2005, researchgate.net/publication/252825877_Infrared_Localisation_for_Indoor_UAVs. 
 
