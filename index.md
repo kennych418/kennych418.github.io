@@ -105,11 +105,14 @@ We measured the voltage output of our IR receiver circuits against one IR emitte
 
 ![CircuitGraph](../Pictures/CircuitGraph.png)
 
-#### Part 2: Distance Measurement
+#### Part 2: BLE Network
+Our unconventional BLE network accomplishes the original goals. It can support multiple nodes in one network and fully transfer and receive data between every node. However, the additional latency severely hinders the rest of the system, where it can take an average of 8 seconds to make one full round of transferring data between every node.
+
+#### Part 3: Distance Measurement
 *INSERT INFO LATER*
 
 ### IX. Strengths and weakness, and future directions
-Previously, we assumed that the Arduino BLE library would be able to support multiple devices on one network. However, the latest version of the Arduino BLE library is not capable of this and [the developers are actively working on adding these features in later versions](https://github.com/Polldo/ArduinoCore-nRF528x-mbedos/tree/ble-multiconnection). As a result, we had to work around this issue by setting up our own connectionless BLE network. Each BLE device will store their data inside the advertised name and use their advertised service as an "access key". When a scanning device finds the appropriate service with matching key, it will read the advertising device's name to retreive the data. This significantly increases our communication latency and causes stability issues. In the future, we could resolve this issue by using a different wireless communication protocol, such as WiFi. 
+Previously, we assumed that the Arduino BLE library would be able to support multiple devices on one network. However, the latest version of the Arduino BLE library is not capable of this and [the developers are actively working on adding these features in later versions](https://github.com/Polldo/ArduinoCore-nRF528x-mbedos/tree/ble-multiconnection). In the future, instead of using our connectionless BLE network, we could use a different wireless communication protocol, such as WiFi. 
 
 The Arduino's 5V-3.3V regulator module can not source enough current to meet our design's goal. We realized that the Arduinos would crash while collecting data, especially when driven through a USB splitter adaptor that would further limit our current. To account for this, we adjusted our software to spread out our high current operations to reduce our average power. In terms of design, we could completely resolve this by using LiPo batteries as our voltage source and using a separate 5V-3.3V regulator that can support higher output current.
 
