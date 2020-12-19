@@ -77,21 +77,25 @@ Softwarewise, we ran into trouble establishing a connection between more than 2 
 **Figure 4**: Shows the typical communication flow with 3 nodes. Stage 1 starts the network initialization, then the nodes loop through stage 2-4 with only one beacon scanning at a time.
 
 #### Part 3: Synchronization
-*ALEX INSERT INFO*
-![SyncBlock](../Pictures/SynchronizationBlockDiagram.png)
-
+Measuring IR intensity required solving two primary synchronization problems. The first synchronization issue comes from the current limit of the IR led. In order to increase our measurement range, we run more than the rated continuous current though the leds with a 50% duty cycle. This makes a series of bright pulses without burning out the leds. When taking measurements from a remote device this duty cycle means we need to take a series of measurements to ensure at least one measurement is fully located within a high emitter pulse (see Figure 5).
 
 ![SyncRead](../Pictures/SynchronizationIRRead.png)
+**Figure 5**: IR Measurement Timing Diagram. This figure shows the timings we used when the testing the beacons without BLE synchronization. Each measurement pulse consists of averaging 40 measurements to decrease noise.
+
+The second synchronization issue is the need to prevent two different IR emitters from being high at the same time. If this happens, IR readings will show misleading information. To solve this, we used the state machine shown in Figure 4. The general idea is that nodes will share their state information and move between the states as they receive confirmation that the other states have completed the desired tasks. After sharing IDs as described in Part 2, each beacon knows the IDs of every other beacon and can sort the IDs in increasing order so all beacons will agree on the order in which they turn on their emitters. The first node selected to emit IR will start in state 0 and all others will start in state 2. From state 0, the node follows these steps. The first node will emit IR until every other beacon confirms having completed a measurement, then it will move to state 1 and listen over BLE until it receives all the measurements taken by the remote nodes. After this, the node relenquishes its position as emitter and moves to state 2 until the next emitter starts emitting. At this point it moves to state 3 where it takes an IR measurement before moving to state 4 where it transmits its reading until the emitter node confirms having received the data. Next, the node moves to state 5 where it will either return to being the emitter node or being a receiver node according to the agreed upon order.
+
+![SyncBlock](../Pictures/SynchronizationBlockDiagram.png)
+**Figure 6**: Synchronization State Machine for Broadcaster/Observer Beacon Architecture.
 
 #### Part 4: Calculating Distance
 With the BLE network and synchronization established, we collected data between 2 nodes at 3 angles and 3 distances to train and validate our distance estimating neural network. *ALEX INSERT INFO*
 
 #### Part 5: Visualize and Compare
-To easily demonstrate the functionality of our system, we created a script in python to visualize the location of each beacon with respect to a reference. A single beacon is connected through a USB to a computer running the visualizer script. The Arduino will print all of its data to the computer's COM port, where the script with parse the data and animate the beacons on a 2D coordinate system. Figure 5 shows two screenshots from the script along with an example of what the physical layout of beacons should look like.
+To easily demonstrate the functionality of our system, we created a script in python to visualize the location of each beacon with respect to a reference. A single beacon is connected through a USB to a computer running the visualizer script. The Arduino will print all of its data to the computer's COM port, where the script with parse the data and animate the beacons on a 2D coordinate system. Figure 7 shows two screenshots from the script along with an example of what the physical layout of beacons should look like.
 
 ![Visualizer](../Pictures/Visualizer.png)
 ![VisualizerReal](../Pictures/VisualizerReal.png)
-**Figure 5**: Two screenshots of the visualizer script that show the movement of the leftmost beacon closer towards the reference beacon.
+**Figure 7**: Two screenshots of the visualizer script that show the movement of the leftmost beacon closer towards the reference beacon.
 
 ### VIII. Results
 #### Part 1: Hardware and Physical Design Validation
@@ -109,11 +113,11 @@ We measured the voltage output of our IR receiver circuits against one IR emitte
 Our unconventional BLE network accomplishes the original goals. It can support multiple nodes in one network and fully transfer and receive data between every node. However, the additional latency severely hinders the rest of the system, where it can take an average of 8 seconds to make one full round of transferring data between every node.
 
 #### Part 3: Distance Estimation
-We were able to validate our fully trained neural network against collected measurements and received pretty good distance estimations. Figure 6 shows how our network's loss reaches less than 0.25 after it was trained with our base measurements. Although we weren't able to test the neural network's in a real experiment setting due to the BLE and power issues, this loss chart demonstrate how our system has the necessary functionalities and could accurately measure distances and possible meet our 0.5cm error goal. 
+We were able to validate our fully trained neural network against collected measurements and received pretty good distance estimations. Figure 8 shows how our network's loss reaches less than 0.25 after it was trained with our base measurements. Although we weren't able to test the neural network's in a real experiment setting due to the BLE and power issues, this loss chart demonstrate how our system has the necessary functionalities and could accurately measure distances and possible meet our 0.5cm error goal. 
 *INSERT INFO LATER*
 
 ![LossChart](../Pictures/Loss.png)
-**Figure 6** Loss chart when testing the neural network with our validation data at various stages of training.
+**Figure 8** Loss chart when testing the neural network with our validation data at various stages of training.
 
 ### IX. Strengths and weakness, and future directions
 Previously, we assumed that the Arduino BLE library would be able to support multiple devices on one network. However, the latest version of the Arduino BLE library is not capable of this and [the developers are actively working on adding these features in later versions](https://github.com/Polldo/ArduinoCore-nRF528x-mbedos/tree/ble-multiconnection). In the future, instead of using our connectionless BLE network, we could use a different wireless communication protocol, such as WiFi. 
