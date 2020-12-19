@@ -108,7 +108,8 @@ We measured the voltage output of our IR receiver circuits against one IR emitte
 #### Part 2: BLE Network
 Our unconventional BLE network accomplishes the original goals. It can support multiple nodes in one network and fully transfer and receive data between every node. However, the additional latency severely hinders the rest of the system, where it can take an average of 8 seconds to make one full round of transferring data between every node.
 
-#### Part 3: Distance Measurement
+#### Part 3: Distance Estimation
+We were able to validate our fully trained neural network against collected measurements and received pretty good distance estimations. Figure 5 shows how our network's loss is as low as ______. 
 *INSERT INFO LATER*
 
 ### IX. Strengths and weakness, and future directions
