@@ -115,12 +115,12 @@ We measured the voltage output of our IR receiver circuits against one IR emitte
 Our unconventional BLE network accomplishes the original goals. It can support multiple nodes in one network and fully transfer and receive data between every node. However, the additional latency severely hinders the rest of the system, where it can take an average of 8 seconds to make one full round of transferring data between every node.
 
 #### Part 3: Distance Estimation
-We were able to validate our fully trained neural network against collected measurements and received pretty good distance estimations. Figure 8 shows how our network's loss reaches less than 0.25 after it was trained with our base measurements. Although we weren't able to test the neural network's in a real experiment setting due to the BLE and power issues, this loss chart demonstrate how our system has the necessary functionalities and could accurately measure distances and possible meet our 0.5cm error goal. 
+We were able to validate our fully trained neural network for distance and heading estimations against collected measurements and received pretty good accuracy. Figure 8 shows how our network's distance estimation loss converges towards 0 after it was trained with our base measurements. Figure 9 shows how our network's heading estimation loss reaches less than 0.25 after training. Although we weren't able to test the neural network's in a real experiment setting due to the BLE and power issues, these loss charts provide a proof of concept for our system could accurately measure distances and headings to meet our original goals. 
 
 ![LossChart](../Pictures/Loss.png)
 **Figure 8**: Loss chart for distance estimation when testing the neural network with our validation data at various stages of training.
 
-![LossAngle](../Pictures/Loss.png)
+![LossAngle](../Pictures/LossAngle.png)
 **Figure 9**: Loss chart for heading estimation when testing the neural network with our validation data at various stages of training.
 
 ### IX. Strengths and weakness, and future directions
