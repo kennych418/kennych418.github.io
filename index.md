@@ -116,10 +116,12 @@ Our unconventional BLE network accomplishes the original goals. It can support m
 
 #### Part 3: Distance Estimation
 We were able to validate our fully trained neural network against collected measurements and received pretty good distance estimations. Figure 8 shows how our network's loss reaches less than 0.25 after it was trained with our base measurements. Although we weren't able to test the neural network's in a real experiment setting due to the BLE and power issues, this loss chart demonstrate how our system has the necessary functionalities and could accurately measure distances and possible meet our 0.5cm error goal. 
-*INSERT INFO LATER*
 
 ![LossChart](../Pictures/Loss.png)
-**Figure 8** Loss chart when testing the neural network with our validation data at various stages of training.
+**Figure 8** Loss chart for distance estimation when testing the neural network with our validation data at various stages of training.
+
+![LossAngle](../Pictures/Loss.png)
+**Figure 9** Loss chart for heading estimation when testing the neural network with our validation data at various stages of training.
 
 ### IX. Strengths and weakness, and future directions
 Previously, we assumed that the Arduino BLE library would be able to support multiple devices on one network. However, the latest version of the Arduino BLE library is not capable of this and [the developers are actively working on adding these features in later versions](https://github.com/Polldo/ArduinoCore-nRF528x-mbedos/tree/ble-multiconnection). In the future, instead of using our connectionless BLE network, we could use a different wireless communication protocol, such as WiFi. 
