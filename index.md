@@ -129,7 +129,7 @@ The Arduino's 5V-3.3V regulator module can not source enough current to meet our
 The 3D printed frame could be redesigned to avoid pillars that reflect and block IR emissions. Instead of using the typical off-the-self PLA that we used for the current design, we could use a different material that is transparent to IR, such as the plastic used on IR-based TV remotes.
 
 ### X. Teammate Contributions
-Alex: IMU dead reckoning, PCB design, IR control code.<br>
+Alex: Neural Network, PCB design, IR control code.<br>
 Kenny: 3D printing, BLE code, project website, visualizer script.
 
 ### XI. Maintaining Safe Social Distancing
