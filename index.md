@@ -35,9 +35,7 @@ Libraries for BLE communication between multiple transmitting and receiving devi
 ### V. Goals and Deliverables
 1. Each beacon can measure distances from other beacons with accuracy varying by about 5mm without any stationary elements.<br>
 2. As a beacon moves, its position updates correctly on a relative coordinate system.<br>
-3. Comparison of IMU results and IR beacon results.<br>
-4. Improved localization using both IMU and IR beacon results.<br>
-5. Full transmit and receive between all devices over BLE.<br>
+3. Full transmit and receive between all devices over BLE.<br>
 
 ### VI. Technical Approach
 The beacons will contain identical hardware and be based around the Arduino Nano 33 BLE Sense. These beacons triangulate relative position based on the received IR intensity and the locations of the other beacons. To avoid crosstalk, the beacons will flash in turn in an order coordinated over BLE as shown in Figure 1. Although a standard approach based on distances alone would use 3 stationary beacons and a single moving device, we will attempt to use only 3 devices and handle the additional degrees of freedom using each device’s IMU and/or angle measurements.
