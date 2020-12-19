@@ -93,11 +93,11 @@ With the BLE network and synchronization established, we collected data between 
 ![NN](../Pictures/NN.png)
 
 #### Part 5: Visualize and Compare
-To easily demonstrate the functionality of our system, we created a script in python to visualize the location of each beacon with respect to a reference. A single beacon is connected through a USB to a computer running the visualizer script. The Arduino will print all of its data to the computer's COM port, where the script with parse the data and animate the beacons on a 2D coordinate system. Figure 7 shows two screenshots from the script along with an example of what the physical layout of beacons should look like.
+To easily demonstrate the functionality of our system, we created a script in python to visualize the location of each beacon with respect to a reference. A single beacon is connected through a USB to a computer running the visualizer script. The Arduino will print all of its data to the computer's COM port, where the script with parse the data and animate the beacons on a 2D coordinate system. Figure 7 shows two screenshots from the script along with an example of what the physical layout of beacons should look like. 
 
 ![Visualizer](../Pictures/Visualizer.png)
 ![VisualizerReal](../Pictures/VisualizerReal.png)
-**Figure 7**: Two screenshots of the visualizer script that show the movement of the leftmost beacon closer towards the reference beacon.
+**Figure 7**: Two screenshots of the visualizer script that were set up to show what the movement of a beacon should look like physically and graphically. We were not able to test test distance measurement in an actual experient due to the BLE and power issues.
 
 ### VIII. Results
 #### Part 1: Hardware and Physical Design Validation
@@ -118,10 +118,10 @@ Our unconventional BLE network accomplishes the original goals. It can support m
 We were able to validate our fully trained neural network against collected measurements and received pretty good distance estimations. Figure 8 shows how our network's loss reaches less than 0.25 after it was trained with our base measurements. Although we weren't able to test the neural network's in a real experiment setting due to the BLE and power issues, this loss chart demonstrate how our system has the necessary functionalities and could accurately measure distances and possible meet our 0.5cm error goal. 
 
 ![LossChart](../Pictures/Loss.png)
-**Figure 8** Loss chart for distance estimation when testing the neural network with our validation data at various stages of training.
+**Figure 8**: Loss chart for distance estimation when testing the neural network with our validation data at various stages of training.
 
 ![LossAngle](../Pictures/Loss.png)
-**Figure 9** Loss chart for heading estimation when testing the neural network with our validation data at various stages of training.
+**Figure 9**: Loss chart for heading estimation when testing the neural network with our validation data at various stages of training.
 
 ### IX. Strengths and weakness, and future directions
 Previously, we assumed that the Arduino BLE library would be able to support multiple devices on one network. However, the latest version of the Arduino BLE library is not capable of this and [the developers are actively working on adding these features in later versions](https://github.com/Polldo/ArduinoCore-nRF528x-mbedos/tree/ble-multiconnection). In the future, instead of using our connectionless BLE network, we could use a different wireless communication protocol, such as WiFi. 
@@ -138,7 +138,7 @@ Kenny: 3D printing, BLE code, project website, visualizer script.
 Since the IR beacons were relatively inexpensive, we designed and ordered enough for the both of us to use without having to meet in person. We designed and order the boards and parts early with the intent for each of us to have components totaling 5 beacons. In addition to the 2 Arduino Nano 33 BLE Sense modules we own, we borrowed 3 and purchased 1 more. This gave each of us access to 3 BLE/IMU modules to go with 5 IR beacon nodes. We shareed code and hardware designs on github and used Zoom for brainstorming and troubleshooting meetings.
 
 ### XII. Other Links
-[Midterm Presentation](https://www.youtube.com/watch?v=xP3mTNycorA&feature=youtu.be&ab_channel=KennyChan)
+[Midterm Presentation](https://www.youtube.com/watch?v=xP3mTNycorA&feature=youtu.be&ab_channel=KennyChan)<br>
 [Final Presentation](https://www.youtube.com/watch?v=xP3mTNycorA&feature=youtu.be&ab_channel=KennyChan)
 
 ### XIII. Sources
