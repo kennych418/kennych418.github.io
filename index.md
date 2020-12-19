@@ -3,7 +3,7 @@
 [Source Code Github Link](https://github.com/kennych418/IR_Localization/tree/master)
 
 ### Final Presentation Video
-[Link](https://www.youtube.com/)
+[Link](https://youtu.be/h8OrvYZ5HZA)
 
 ### I. Abstract
 We explore the possibility of using IR beacons for small-scale relative localization between objects. Each node will have one IR emitter beacon and multiple IR receivers. The beacons will each be equipped with BLE capabilities and an IMU from an Arduino Nano 33 BLE Sense. These beacons will coordinate blinking patterns over BLE such that only one beacon at a time is emitting IR towards the others to be received. Once the receiving beacon measures the IR value it detects, it will pass the measured values through a trained neural network to estimate its distance from the emitter. To generate a symmetric light pattern, we will use a card or irregular lens to scatter the light in a uniform pattern around the beacon. Since each beacon will have an IMU we will further use this to improve localization accuracy, determine directions of motion, and track each object's heading.
@@ -137,7 +137,7 @@ Since the IR beacons were relatively inexpensive, we designed and ordered enough
 
 ### XII. Other Links
 [Midterm Presentation](https://www.youtube.com/watch?v=xP3mTNycorA&feature=youtu.be&ab_channel=KennyChan)<br>
-[Final Presentation](https://www.youtube.com/watch?v=xP3mTNycorA&feature=youtu.be&ab_channel=KennyChan)
+[Final Presentation](https://youtu.be/h8OrvYZ5HZA)
 
 ### XIII. Sources
 
