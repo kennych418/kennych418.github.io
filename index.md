@@ -90,6 +90,8 @@ The second synchronization issue is the need to prevent two different IR emitter
 #### Part 4: Calculating Distance
 With the BLE network and synchronization established, we collected data between 2 nodes at 3 angles and 3 distances to train and validate our distance estimating neural network. *ALEX INSERT INFO*
 
+![NN](../Pictures/NN.png)
+
 #### Part 5: Visualize and Compare
 To easily demonstrate the functionality of our system, we created a script in python to visualize the location of each beacon with respect to a reference. A single beacon is connected through a USB to a computer running the visualizer script. The Arduino will print all of its data to the computer's COM port, where the script with parse the data and animate the beacons on a 2D coordinate system. Figure 7 shows two screenshots from the script along with an example of what the physical layout of beacons should look like.
 
