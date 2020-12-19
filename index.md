@@ -109,8 +109,11 @@ We measured the voltage output of our IR receiver circuits against one IR emitte
 Our unconventional BLE network accomplishes the original goals. It can support multiple nodes in one network and fully transfer and receive data between every node. However, the additional latency severely hinders the rest of the system, where it can take an average of 8 seconds to make one full round of transferring data between every node.
 
 #### Part 3: Distance Estimation
-We were able to validate our fully trained neural network against collected measurements and received pretty good distance estimations. Figure 5 shows how our network's loss is as low as ______. 
+We were able to validate our fully trained neural network against collected measurements and received pretty good distance estimations. Figure 6 shows how our network's loss reaches less than 0.25 after it was trained with our base measurements. Although we weren't able to test the neural network's in a real experiment due to the BLE and power issues, this loss chart demonstrate how our it could accurately measure distances with less than 0.5cm of error. 
 *INSERT INFO LATER*
+
+![LossChart](../Pictures/Loss.png)
+**Figure 6** Loss chart when testing the neural network with our validation data at various stages of training.
 
 ### IX. Strengths and weakness, and future directions
 Previously, we assumed that the Arduino BLE library would be able to support multiple devices on one network. However, the latest version of the Arduino BLE library is not capable of this and [the developers are actively working on adding these features in later versions](https://github.com/Polldo/ArduinoCore-nRF528x-mbedos/tree/ble-multiconnection). In the future, instead of using our connectionless BLE network, we could use a different wireless communication protocol, such as WiFi. 
