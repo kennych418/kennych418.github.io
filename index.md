@@ -5,13 +5,13 @@
 ### Final Presentation Video
 [Link](https://www.youtube.com/)
 
-### I. Motivation
+### I. Abstract
+We explore the possibility of using IR beacons for small-scale relative localization between objects. Each node will have one IR emitter beacon and multiple IR receivers. The beacons will each be equipped with BLE capabilities and an IMU from an Arduino Nano 33 BLE Sense. These beacons will coordinate blinking patterns over BLE such that only one beacon at a time is emitting IR towards the others to be received. Once the receiving beacon measures the IR value it detects, it will pass the measured values through a trained neural network to estimate its distance from the emitter. To generate a symmetric light pattern, we will use a card or irregular lens to scatter the light in a uniform pattern around the beacon. Since each beacon will have an IMU we will further use this to improve localization accuracy, determine directions of motion, and track each object's heading.
+
+### II. Motivation
 With the increase in IoT devices hitting the market, there is a rising demand for localization between many mobile or wearable devices. For example, Apple is developing many personal, interconnected devices such as the iPhone, iWatch, and Airpods. These devices can benefit from know whether they are currently on the user's wrist, in their pocket, or far away out of reach. However, traditional localization methods either require stationary beacons or have limited accuracy in a smaller, more personal scale. As a result, these schemes do not work for the growing market of mobile, wearable devices. We aim solve this conflict by designing wireless nodes that can be integrated into devices and enable relative position tracking between similarly networked devices. 
 
 ![Intro](../Pictures/Intro.png)
-
-### II. Abstract
-We explore the possibility of using IR beacons for small-scale relative localization between objects. Each node will have one IR emitter beacon and multiple IR receivers. The beacons will each be equipped with BLE capabilities and an IMU from an Arduino Nano 33 BLE Sense. These beacons will coordinate blinking patterns over BLE such that only one beacon at a time is emitting IR towards the others to be received. Once the receiving beacon measures the IR value it detects, it will pass the measured values through a trained neural network to estimate its distance from the emitter. To generate a symmetric light pattern, we will use a card or irregular lens to scatter the light in a uniform pattern around the beacon. Since each beacon will have an IMU we will further use this to improve localization accuracy, determine directions of motion, and track each object's heading.
 
 ### III. Prior Work Analysis
 There is a large amount of prior work in the realm of indoor localization using IR beacons, but our intended approach of using beacons with changing positions to determine relative positioning seems to be somewhat new.
