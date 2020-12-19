@@ -86,7 +86,7 @@ The second synchronization issue is the need to prevent two different IR emitter
 **Figure 6**: Synchronization State Machine for Broadcaster/Observer Beacon Architecture.
 
 #### Part 4: Calculating Distance
-With the BLE network and synchronization established, we collected data between 2 nodes at 3 angles and 3 distances to train and validate our distance estimating neural network. *ALEX INSERT INFO*
+With the BLE network and synchronization established, we collected data between 2 nodes at 3 angles, 3 distances, and 12 remote node orientations to train and validate our distance estimating neural network. *ALEX INSERT INFO*
 
 ![NN](../Pictures/NN.png)
 
