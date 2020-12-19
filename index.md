@@ -31,7 +31,6 @@ Libraries for BLE communication between multiple transmitting and receiving devi
 2.       Sensor Calibration: IR emitters and receivers are calibrated to gather distance and direction values as soon as the hardware arrives.
 3.       BLE Synchronization: Since we intend to have independent “equal” nodes, we worked out synchronization between beacons without a predefined master node.
 4.       Distance Estimating Neural Network: We implemented a neural network on the Arduinos through Tensorflow Lite to take in our received IR measurements with IMU heading and extrapolate the distance between beacons.
-5.       Data Fusion: We use data from sensor distances and the onboard IMU to calculate relative locations of the nodes.
 
 ### V. Goals and Deliverables
 1. Each beacon can measure distances from other beacons with accuracy varying by about 5mm without any stationary elements.<br>
